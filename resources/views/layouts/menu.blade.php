@@ -19,3 +19,10 @@
         <p>Marcas</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('tecnicos.index') }}" class="nav-link {{ Request::is('tecnicos*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Tecnicos</p>
+    </a>
+</li>
