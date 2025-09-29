@@ -7,6 +7,7 @@ use App\Http\Requests\CreateModeloRequest;
 use App\Http\Requests\UpdateModeloRequest;
 use App\Http\Controllers\AppBaseController;
 use App\Models\Modelo;
+use App\Models\Marca;
 use Illuminate\Http\Request;
 
 class ModeloController extends AppBaseController
@@ -33,7 +34,8 @@ class ModeloController extends AppBaseController
      */
     public function create()
     {
-        return view('modelos.create');
+        $marcas = Marca::pluck('nombre', 'id');
+        return view('modelos.create', compact('marcas'));
     }
 
     /**
@@ -81,8 +83,8 @@ class ModeloController extends AppBaseController
 
             return redirect(route('modelos.index'));
         }
-
-        return view('modelos.edit')->with('modelo', $modelo);
+        $marcas = Marca::pluck('nombre', 'id');
+        return view('modelos.edit', compact('modelo', 'marcas'));
     }
 
     /**
