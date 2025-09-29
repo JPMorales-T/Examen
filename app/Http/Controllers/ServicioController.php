@@ -38,7 +38,9 @@ class ServicioController extends AppBaseController
         $estados = \App\Models\Estado::pluck('nombre', 'id')->toArray();    // Obtener los estados
         $equipos = \App\Models\Equipo::pluck('numero_serie', 'id')->toArray();  // Obtener los equipos
 
-        return view('servicios.create', compact('clientes', 'tecnicos', 'estados', 'equipos'));
+        $fecha = now()->format('Y-m-d H:i:s'); // Generar la fecha actual
+
+        return view('servicios.create', compact('clientes', 'tecnicos', 'estados', 'equipos', 'fecha'));
     }
 
     /**

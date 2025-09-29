@@ -1,7 +1,11 @@
+
 <!-- Fecha Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('fecha', 'Fecha:') !!}
-    {!! Form::text('fecha', null, ['class' => 'form-control','id'=>'fecha']) !!}
+    <p class="form-control-plaintext">
+        {{ $servicio->fecha ?? now()->format('Y-m-d H:i:s') }}
+    </p>
+    {!! Form::hidden('fecha', $servicio->fecha ?? now()->format('Y-m-d H:i:s')) !!}
 </div>
 
 @push('page_scripts')
