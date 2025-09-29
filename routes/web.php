@@ -103,3 +103,5 @@ Route::resource('clientes', App\Http\Controllers\ClienteController::class);
 Route::resource('marcas', App\Http\Controllers\MarcaController::class);
 Route::resource('tecnicos', App\Http\Controllers\TecnicoController::class);
 Route::resource('modelos', App\Http\Controllers\ModeloController::class);
+Route::resource('equipos', App\Http\Controllers\EquipoController::class);
+Route::resource('servicios', App\Http\Controllers\ServicioController::class);
