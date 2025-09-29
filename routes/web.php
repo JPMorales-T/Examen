@@ -100,3 +100,4 @@ Route::group(['prefix' => ''], function () {
 
 Route::resource('estados', App\Http\Controllers\EstadoController::class);
 Route::resource('clientes', App\Http\Controllers\ClienteController::class);
+Route::resource('marcas', App\Http\Controllers\MarcaController::class);
