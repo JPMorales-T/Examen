@@ -26,3 +26,10 @@
         <p>Tecnicos</p>
     </a>
 </li>
+
+<li class="nav-item">
+    <a href="{{ route('modelos.index') }}" class="nav-link {{ Request::is('modelos*') ? 'active' : '' }}">
+        <i class="nav-icon fas fa-home"></i>
+        <p>Modelos</p>
+    </a>
+</li>
