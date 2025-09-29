@@ -33,7 +33,11 @@ class EquipoController extends AppBaseController
      */
     public function create()
     {
-        return view('equipos.create');
+        $clientes = \App\Models\Cliente::pluck('nombre', 'id')->toArray(); // Obtener clientes
+        $modelos = \App\Models\Modelo::pluck('nombre', 'id')->toArray(); // Obtener modelos
+        $marcas = \App\Models\Marca::pluck('nombre', 'id')->toArray(); // Obtener marcas
+
+        return view('equipos.create', compact('clientes', 'modelos', 'marcas'));
     }
 
     /**
@@ -73,16 +77,18 @@ class EquipoController extends AppBaseController
      */
     public function edit($id)
     {
-        /** @var Equipo $equipo */
         $equipo = Equipo::find($id);
 
         if (empty($equipo)) {
             flash()->error('Equipo no encontrado');
-
             return redirect(route('equipos.index'));
         }
 
-        return view('equipos.edit')->with('equipo', $equipo);
+        $clientes = \App\Models\Cliente::pluck('nombre', 'id')->toArray(); // Obtener clientes
+        $modelos = \App\Models\Modelo::pluck('nombre', 'id')->toArray(); // Obtener modelos
+        $marcas = \App\Models\Marca::pluck('nombre', 'id')->toArray(); // Obtener marcas
+
+        return view('equipos.edit', compact('equipo', 'clientes', 'modelos', 'marcas'));
     }
 
     /**

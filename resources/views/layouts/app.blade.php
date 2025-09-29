@@ -56,7 +56,7 @@
     <footer class="main-footer">
         <strong>
             Copyright &copy; 2014-{{anioActual()}}
-            <a href="https://solucionesaltamirano.com/">Talleres </a>.
+            <a href="">Talleres </a>.
         </strong>
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">

@@ -6,18 +6,18 @@
 
 <!-- Cliente Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('cliente_id', 'Cliente Id:') !!}
-    {!! Form::number('cliente_id', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('cliente_id', 'Cliente:') !!}
+    {!! Form::select('cliente_id', $clientes, null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Modelo Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('modelo_id', 'Modelo Id:') !!}
-    {!! Form::number('modelo_id', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('modelo_id', 'Modelo:') !!}
+    {!! Form::select('modelo_id', $modelos, null, ['class' => 'form-control', 'required']) !!}
 </div>
 
 <!-- Marca Id Field -->
 <div class="form-group col-sm-6">
-    {!! Form::label('marca_id', 'Marca Id:') !!}
-    {!! Form::number('marca_id', null, ['class' => 'form-control', 'required']) !!}
+    {!! Form::label('marca_id', 'Marca:') !!}
+    {!! Form::select('marca_id', $marcas, null, ['class' => 'form-control', 'required']) !!}
 </div>

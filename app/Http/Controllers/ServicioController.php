@@ -33,7 +33,12 @@ class ServicioController extends AppBaseController
      */
     public function create()
     {
-        return view('servicios.create');
+        $clientes = \App\Models\Cliente::pluck('nombre', 'id')->toArray();  // Obtener los clientes
+        $tecnicos = \App\Models\Tecnico::pluck('nombre', 'id')->toArray();  // Obtener los técnicos
+        $estados = \App\Models\Estado::pluck('nombre', 'id')->toArray();    // Obtener los estados
+        $equipos = \App\Models\Equipo::pluck('numero_serie', 'id')->toArray();  // Obtener los equipos
+
+        return view('servicios.create', compact('clientes', 'tecnicos', 'estados', 'equipos'));
     }
 
     /**
@@ -73,16 +78,19 @@ class ServicioController extends AppBaseController
      */
     public function edit($id)
     {
-        /** @var Servicio $servicio */
         $servicio = Servicio::find($id);
 
         if (empty($servicio)) {
             flash()->error('Servicio no encontrado');
-
             return redirect(route('servicios.index'));
         }
 
-        return view('servicios.edit')->with('servicio', $servicio);
+        $clientes = \App\Models\Cliente::pluck('nombre', 'id')->toArray();
+        $tecnicos = \App\Models\Tecnico::pluck('nombre', 'id')->toArray();
+        $estados = \App\Models\Estado::pluck('nombre', 'id')->toArray();
+        $equipos = \App\Models\Equipo::pluck('numero_serie', 'id')->toArray();
+
+        return view('servicios.edit', compact('servicio', 'clientes', 'tecnicos', 'estados', 'equipos'));
     }
 
     /**
